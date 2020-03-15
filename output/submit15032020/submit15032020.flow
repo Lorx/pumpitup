@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "getFrames"
+    },
+    {
+      "type": "cs",
+      "input": "assist runAutoML, training_frame: \"RTMP_sid_a0ab_168\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"input_spec\":{\"training_frame\":\"RTMP_sid_a0ab_168\",\"response_column\":\"status_group\",\"validation_frame\":\"RTMP_sid_a0ab_166\",\"leaderboard_frame\":\"RTMP_sid_a0ab_166\",\"ignored_columns\":[\"id\"],\"sort_metric\":\"AUTO\"},\"build_control\":{\"nfolds\":5,\"balance_classes\":false,\"stopping_criteria\":{\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":0,\"max_runtime_secs_per_model\":0,\"stopping_rounds\":3,\"stopping_metric\":\"AUTO\",\"stopping_tolerance\":-1},\"keep_cross_validation_predictions\":true,\"keep_cross_validation_models\":true,\"keep_cross_validation_fold_assignment\":false},\"build_models\":{\"exclude_algos\":[\"GLM\",\"DeepLearning\",\"StackedEnsemble\"],\"monotone_constraints\":[]}}, 'exec'"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"AutoML_20200315_82442281@@status_group\""
+    },
+    {
+      "type": "cs",
+      "input": "getModel \"GBM_grid__1_AutoML_20200315_082442_model_36\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid__1_AutoML_20200315_082442_model_36\""
+    },
+    {
+      "type": "cs",
+      "input": "predict model: \"GBM_grid__1_AutoML_20200315_082442_model_36\", frame: \"submition_data.hex\", predictions_frame: \"submit_automl_gbm_15032020\""
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"submit_automl_gbm_15032020\""
+    },
+    {
+      "type": "cs",
+      "input": "bindFrames \"combined-submit_automl_gbm_15032020\", [ \"submit_automl_gbm_15032020\", \"submition_data.hex\" ]"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"combined-submit_automl_gbm_15032020\""
+    },
+    {
+      "type": "cs",
+      "input": "exportModel \"GBM_grid__1_AutoML_20200315_082442_model_36\""
+    },
+    {
+      "type": "cs",
+      "input": "exportModel \"GBM_grid__1_AutoML_20200315_082442_model_36\", \"C:/Users/Lewis/Desktop/datasciencechallenge/pumpitup/output/GBM_grid__1_AutoML_20200315_082442_model_36\", overwrite: false, format: \"bin\""
+    }
+  ]
+}
